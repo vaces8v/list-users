@@ -1,8 +1,7 @@
-import { NextResponse } from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 import prisma from "../../../../../prisma/prisma-client";
-import { NextApiRequest } from "next";
 
-export async function DELETE(req: NextApiRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
 	const {id} = params
 
 	const user = await prisma.user.delete({
